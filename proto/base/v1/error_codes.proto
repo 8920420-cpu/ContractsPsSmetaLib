@@ -1,6 +1,8 @@
 syntax = "proto3";
 package contracts.base.v1;
 
+option go_package = "ContractsPsSmetaLib/gen/go/base/v1";
+
 enum ErrorCode {
   ERROR_CODE_UNSPECIFIED = 0;
 

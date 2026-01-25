@@ -2,6 +2,7 @@ syntax = "proto3";
 package contracts.account.v1;
 
 import "account/v1/account.proto";
+option go_package = "ContractsPsSmetaLib/gen/go/account/v1";
 
 service AccountService {
   rpc CreateAccount(CreateAccountRequest)

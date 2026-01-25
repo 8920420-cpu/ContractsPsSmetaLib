@@ -4,6 +4,8 @@ package contracts.account.v1;
 import "base/v1/context.proto";
 import "base/v1/status.proto";
 
+option go_package = "ContractsPsSmetaLib/gen/go/account/v1";
+
 message CreateAccountRequest {
   contracts.base.v1.RequestContext context = 1;
 

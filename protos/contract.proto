@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+
+package contractslib;
+
+option go_package = "ContractsPsSmetaLib/internal/protogen";
+
+message Contract {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message ContractList {
+  repeated Contract contracts = 1;
+}

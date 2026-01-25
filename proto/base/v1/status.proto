@@ -1,6 +1,8 @@
 syntax = "proto3";
 package contracts.base.v1;
 
+option go_package = "ContractsPsSmetaLib/gen/go/base/v1";
+
 message ResponseStatus {
   bool success = 1;
   string error_code = 2;

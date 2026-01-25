@@ -1,6 +1,9 @@
 syntax = "proto3";
 package contracts.base.v1;
 
+// Важно для Go:
+option go_package = "ContractsPsSmetaLib/gen/go/base/v1";
+
 message RequestContext {
   string sender_id = 1;
   string sender_service = 2;

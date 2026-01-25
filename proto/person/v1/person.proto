@@ -4,6 +4,8 @@ package contracts.person.v1;
 import "base/v1/context.proto"; //отправляем контекст кто, зачем и почему отправил запрос
 import "base/v1/status.proto"; //получаем ответ выполнен запрос или ошибка
 
+option go_package = "ContractsPsSmetaLib/gen/go/person/v1";
+
 message CreatePersonRequest {
   contracts.base.v1.RequestContext context = 1; //отправляем контекст
 
