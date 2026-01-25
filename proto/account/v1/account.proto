@@ -1,0 +1,18 @@
+syntax = "proto3";
+package contracts.account.v1;
+
+import "base/v1/context.proto";
+import "base/v1/status.proto";
+
+message CreateAccountRequest {
+  contracts.base.v1.RequestContext context = 1;
+
+  string account_number = 2;
+  string organization = 3;
+  string client = 4;
+  string counterparty = 5;
+}
+
+message CreateAccountResponse {
+  contracts.base.v1.ResponseStatus status = 1;
+}

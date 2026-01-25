@@ -1,0 +1,9 @@
+syntax = "proto3";
+package contracts.person.v1;
+
+import "person/v1/person.proto";
+
+service PersonService {                   //объявление сервиса (как класс/интерфейс)
+  rpc CreatePerson(CreatePersonRequest)   //удаленный метод (Remote Procedure Call) //входной параметр (обычно message)
+      returns (CreatePersonResponse);     //возвращаемое значение (обычно message)
+}

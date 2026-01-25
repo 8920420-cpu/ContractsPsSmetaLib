@@ -1,0 +1,9 @@
+syntax = "proto3";
+package contracts.base.v1;
+
+message RequestContext {
+  string sender_id = 1;
+  string sender_service = 2;
+  string request_id = 3;
+  int64 timestamp = 4;
+}

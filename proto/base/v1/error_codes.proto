@@ -1,0 +1,12 @@
+syntax = "proto3";
+package contracts.base.v1;
+
+enum ErrorCode {
+  ERROR_CODE_UNSPECIFIED = 0;
+
+  VALIDATION_ERROR = 1;
+  NOT_FOUND = 2;
+  ALREADY_EXISTS = 3;
+  PERMISSION_DENIED = 4;
+  INTERNAL_ERROR = 5;
+}

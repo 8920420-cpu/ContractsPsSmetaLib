@@ -1,0 +1,9 @@
+syntax = "proto3";
+package contracts.account.v1;
+
+import "account/v1/account.proto";
+
+service AccountService {
+  rpc CreateAccount(CreateAccountRequest)
+      returns (CreateAccountResponse);
+}
