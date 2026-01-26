@@ -1,0 +1,36 @@
+syntax = "proto3";
+package contracts.account.v1;
+
+import "base/v1/context.proto";
+import "base/v1/status.proto";
+
+option go_package = "ContractsPsSmetaLib/gen/go/findate/v1";
+
+message DateDMY {
+    uint32 day   = 1;
+    uint32 month = 2;
+    uint32 year  = 3;
+}
+
+message SendFinDate {
+
+  DateDMY start_date = 1;//дата число/месяц/год 15/10/2026
+  DateDMY end_date = 2;   //дата число/месяц/год 15/10/2026
+
+  double opening_receivable = 3;     
+  double closing_receivable = 4;     
+  double collections_receivable = 5; 
+
+  double opening_payable = 6;  
+  double closing_payable = 7;  
+  double payments_payable = 8; 
+
+  double opening_balance = 9;   
+  double closing_balance = 10;   
+  double cost_of_goods_sold = 11; 
+
+  double credit_open = 12;  
+  double credit_close = 13; 
+  double money_open = 14;  
+  double money_close  = 15; 
+}

@@ -30,3 +30,21 @@ contracts-lib/
 
 
 
+protoc -I=proto `
+  --go_out=. --go_opt=paths=source_relative `
+  --go-grpc_out=. --go-grpc_opt=paths=source_relative `
+  proto/findate/v1/sendfindate.proto
+
+  -I — include path (папка, откуда protoc будет искать все импорты внутри .proto)
+
+  --go_out=.
+    Генерирует Go-код для сообщений (message)
+.   → сгенерированные файлы положит в текущую папку (или рядом с исходным .proto)
+
+  ---go-grpc_out=.
+     Генерирует Go-код для gRPC (service), если в proto есть rpc-методы
+    . → генерировать в текущей папке
+
+ --proto/findate/v1/sendfindate.proto
+    Это сам файл, который нужно скомпилировать
+    protoc читает этот файл и все его импорты (с учётом -I)
