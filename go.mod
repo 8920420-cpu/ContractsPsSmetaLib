@@ -1,4 +1,5 @@
-module ContractsPsSmetaLib
+//module ContractsPsSmetaLib
+module github.com/8920420-cpu/ContractsPsSmetaLib
 
 go 1.25.4
 

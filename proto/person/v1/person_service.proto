@@ -2,7 +2,7 @@ syntax = "proto3";
 package contracts.person.v1;
 
 import "person/v1/person.proto";
-option go_package = "ContractsPsSmetaLib/gen/go/person/v1";
+option go_package = "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/person/v1";
 
 service PersonService {                   //объявление сервиса (как класс/интерфейс)
   rpc CreatePerson(CreatePersonRequest)   //удаленный метод (Remote Procedure Call) //входной параметр (обычно message)

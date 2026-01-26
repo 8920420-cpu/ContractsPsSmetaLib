@@ -1,7 +1,7 @@
 syntax = "proto3";
 package contracts.base.v1;
 
-option go_package = "ContractsPsSmetaLib/gen/go/base/v1";
+option go_package = "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/base/v1";
 
 message ResponseStatus {
   bool success = 1;

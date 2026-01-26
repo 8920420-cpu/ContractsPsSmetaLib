@@ -7,7 +7,7 @@
 package v1
 
 import (
-	_ "ContractsPsSmetaLib/gen/go/base/v1"
+	_ "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/base/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -267,7 +267,7 @@ const file_findate_v1_findate_proto_rawDesc = "" +
 	"\n" +
 	"money_open\x18\x0e \x01(\x01R\tmoneyOpen\x12\x1f\n" +
 	"\vmoney_close\x18\x0f \x01(\x01R\n" +
-	"moneyCloseB'Z%ContractsPsSmetaLib/gen/go/findate/v1b\x06proto3"
+	"moneyCloseB>Z<github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/findate/v1b\x06proto3"
 
 var (
 	file_findate_v1_findate_proto_rawDescOnce sync.Once

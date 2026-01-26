@@ -2,7 +2,7 @@
 
 package contractslib;
 
-option go_package = "ContractsPsSmetaLib/internal/protogen";
+option go_package = "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/internal/protogen";
 
 message Contract {
   string id = 1;

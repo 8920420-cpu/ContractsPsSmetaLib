@@ -7,7 +7,7 @@
 package v1
 
 import (
-	v1 "ContractsPsSmetaLib/gen/go/base/v1"
+	v1 "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/base/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -175,7 +175,7 @@ const file_person_v1_person_proto_rawDesc = "" +
 	"birth_date\x18\x06 \x01(\tR\tbirthDate\x12\x1a\n" +
 	"\bposition\x18\a \x01(\tR\bposition\"Q\n" +
 	"\x14CreatePersonResponse\x129\n" +
-	"\x06status\x18\x01 \x01(\v2!.contracts.base.v1.ResponseStatusR\x06statusB&Z$ContractsPsSmetaLib/gen/go/person/v1b\x06proto3"
+	"\x06status\x18\x01 \x01(\v2!.contracts.base.v1.ResponseStatusR\x06statusB=Z;github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/person/v1b\x06proto3"
 
 var (
 	file_person_v1_person_proto_rawDescOnce sync.Once
