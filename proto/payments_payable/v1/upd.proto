@@ -1,0 +1,25 @@
+syntax = "proto3";
+package contracts.payments_payable.v1;
+
+import "base/v1/context.proto";
+import "base/v1/status.proto";
+import "validate/validate.proto";
+
+import "payments_payable/v1/nomenclature.proto";
+
+option go_package = "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/payments_payable/v1";
+
+message CreateUPDRequest {
+  contracts.base.v1.RequestContext context = 1;
+
+  int64 client_id = 2 [(validate.rules).int64.gt = 0];
+  int64 counterparty_id = 3 [(validate.rules).int64.gt = 0];
+  int64 organization_id = 4 [(validate.rules).int64.gt = 0];
+  int64 number = 5 [(validate.rules).int64.gt = 0];
+
+  repeated Nomenclature items = 6 [(validate.rules).repeated.min_items = 1];
+}
+
+message CreateUPDResponse {
+  contracts.base.v1.ResponseStatus status = 1;
+}

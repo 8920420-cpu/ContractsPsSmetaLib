@@ -1,0 +1,18 @@
+syntax = "proto3";
+package contracts.payments_payable.v1;
+
+import "payments_payable/v1/nomenclature.proto";
+import "payments_payable/v1/invoice.proto";
+import "payments_payable/v1/upd.proto";
+
+option go_package = "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/payments_payable/v1";
+
+service InvoiceService {                  
+  rpc CreateInvoice(CreateInvoiceRequest)  
+      returns (CreateInvoiceResponse);     
+}
+
+service UPDService {                  
+  rpc CreateUPD(CreateUPDRequest)  
+      returns (CreateUPDResponse);     
+}

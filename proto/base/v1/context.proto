@@ -1,12 +1,45 @@
 syntax = "proto3";
 package contracts.base.v1;
 
-// Важно для Go:
+// УДАЛИТЕ эти импорты:
+// import "third_party/google/protobuf/timestamp.proto";
+// import "google/protobuf/timestamp.proto";
+// import "base/v1/collback.proto";
+
+// ЗАМЕНИТЕ на int64 для timestamp и создайте CollBack в этом же файле:
+
 option go_package = "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/base/v1";
 
+enum CallbackStatus {
+  CALLBACK_UNSPECIFIED = 0;
+  CALLBACK_OK = 1;
+  CALLBACK_NOT_COMPLETED = 2;
+}
+
+message CollBack {
+  CallbackStatus status = 1;
+  string message = 2;
+}
+
+enum Role {
+  ROLE_UNSPECIFIED = 0;
+  ROLE_SYSTEM = 1;
+  ROLE_ADMIN = 2;
+  ROLE_MANAGER = 3;
+  ROLE_CLIENT = 4;
+}
+
 message RequestContext {
-  string sender_id = 1;
-  string sender_service = 2;
-  string request_id = 3;
-  int64 timestamp = 4;
+  // tracing
+  string request_id = 1;
+  string caller_service = 2;
+  string caller_instance_id = 3;
+  int64 timestamp = 4;  // ЗАМЕНА: Unix timestamp вместо google.protobuf.Timestamp
+
+  // security
+  string user_id = 5;
+  string client_id = 6;
+  string organization_id = 7;
+  Role role = 8;
+  CollBack coll_back = 9;
 }

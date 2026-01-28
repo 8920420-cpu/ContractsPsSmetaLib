@@ -1,5 +1,5 @@
 syntax = "proto3";
-package contracts.account.v1;
+package contracts.findate.v1;
 
 import "base/v1/context.proto";
 import "base/v1/status.proto";
