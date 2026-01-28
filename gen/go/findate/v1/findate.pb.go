@@ -242,15 +242,15 @@ var File_findate_v1_findate_proto protoreflect.FileDescriptor
 
 const file_findate_v1_findate_proto_rawDesc = "" +
 	"\n" +
-	"\x18findate/v1/findate.proto\x12\x14contracts.account.v1\x1a\x15base/v1/context.proto\x1a\x14base/v1/status.proto\"E\n" +
+	"\x18findate/v1/findate.proto\x12\x14contracts.findate.v1\x1a\x15base/v1/context.proto\x1a\x14base/v1/status.proto\"E\n" +
 	"\aDateDMY\x12\x10\n" +
 	"\x03day\x18\x01 \x01(\rR\x03day\x12\x14\n" +
 	"\x05month\x18\x02 \x01(\rR\x05month\x12\x12\n" +
 	"\x04year\x18\x03 \x01(\rR\x04year\"\x9a\x05\n" +
 	"\vSendFinDate\x12<\n" +
 	"\n" +
-	"start_date\x18\x01 \x01(\v2\x1d.contracts.account.v1.DateDMYR\tstartDate\x128\n" +
-	"\bend_date\x18\x02 \x01(\v2\x1d.contracts.account.v1.DateDMYR\aendDate\x12-\n" +
+	"start_date\x18\x01 \x01(\v2\x1d.contracts.findate.v1.DateDMYR\tstartDate\x128\n" +
+	"\bend_date\x18\x02 \x01(\v2\x1d.contracts.findate.v1.DateDMYR\aendDate\x12-\n" +
 	"\x12opening_receivable\x18\x03 \x01(\x01R\x11openingReceivable\x12-\n" +
 	"\x12closing_receivable\x18\x04 \x01(\x01R\x11closingReceivable\x125\n" +
 	"\x16collections_receivable\x18\x05 \x01(\x01R\x15collectionsReceivable\x12'\n" +
@@ -283,12 +283,12 @@ func file_findate_v1_findate_proto_rawDescGZIP() []byte {
 
 var file_findate_v1_findate_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_findate_v1_findate_proto_goTypes = []any{
-	(*DateDMY)(nil),     // 0: contracts.account.v1.DateDMY
-	(*SendFinDate)(nil), // 1: contracts.account.v1.SendFinDate
+	(*DateDMY)(nil),     // 0: contracts.findate.v1.DateDMY
+	(*SendFinDate)(nil), // 1: contracts.findate.v1.SendFinDate
 }
 var file_findate_v1_findate_proto_depIdxs = []int32{
-	0, // 0: contracts.account.v1.SendFinDate.start_date:type_name -> contracts.account.v1.DateDMY
-	0, // 1: contracts.account.v1.SendFinDate.end_date:type_name -> contracts.account.v1.DateDMY
+	0, // 0: contracts.findate.v1.SendFinDate.start_date:type_name -> contracts.findate.v1.DateDMY
+	0, // 1: contracts.findate.v1.SendFinDate.end_date:type_name -> contracts.findate.v1.DateDMY
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
