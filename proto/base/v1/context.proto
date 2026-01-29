@@ -1,13 +1,6 @@
 syntax = "proto3";
 package contracts.base.v1;
 
-// УДАЛИТЕ эти импорты:
-// import "third_party/google/protobuf/timestamp.proto";
-// import "google/protobuf/timestamp.proto";
-// import "base/v1/collback.proto";
-
-// ЗАМЕНИТЕ на int64 для timestamp и создайте CollBack в этом же файле:
-
 option go_package = "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/base/v1";
 
 enum CallbackStatus {
@@ -43,3 +36,6 @@ message RequestContext {
   Role role = 8;
   CollBack coll_back = 9;
 }
+
+
+  

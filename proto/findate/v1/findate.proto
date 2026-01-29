@@ -1,23 +1,15 @@
 syntax = "proto3";
 package contracts.findate.v1;
 
-import "base/v1/context.proto";
-import "base/v1/status.proto";
+import "base/v1/date.proto";
 
-//option go_package = "ContractsPsSmetaLib/gen/go/findate/v1";
 option go_package = "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/findate/v1";
-
-message DateDMY {
-    uint32 day   = 1;
-    uint32 month = 2;
-    uint32 year  = 3;
-}
 
 message SendFinDate {
 
-  DateDMY start_date = 1;//дата число/месяц/год 15/10/2026
-  DateDMY end_date = 2;   //дата число/месяц/год 15/10/2026
-
+  contracts.base.v1.DateDMY start_date = 1;  // дата начала
+  contracts.base.v1.DateDMY end_date   = 2;  // дата окончания
+  
   double opening_receivable = 3;     
   double closing_receivable = 4;     
   double collections_receivable = 5; 

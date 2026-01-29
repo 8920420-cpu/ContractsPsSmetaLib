@@ -90,7 +90,7 @@ const file_base_v1_error_codes_proto_rawDesc = "" +
 	"\tNOT_FOUND\x10\x02\x12\x12\n" +
 	"\x0eALREADY_EXISTS\x10\x03\x12\x15\n" +
 	"\x11PERMISSION_DENIED\x10\x04\x12\x12\n" +
-	"\x0eINTERNAL_ERROR\x10\x05B$Z\"ContractsPsSmetaLib/gen/go/base/v1b\x06proto3"
+	"\x0eINTERNAL_ERROR\x10\x05B;Z9github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/base/v1b\x06proto3"
 
 var (
 	file_base_v1_error_codes_proto_rawDescOnce sync.Once

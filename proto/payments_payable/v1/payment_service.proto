@@ -1,7 +1,6 @@
 syntax = "proto3";
 package contracts.payments_payable.v1;
 
-import "payments_payable/v1/nomenclature.proto";
 import "payments_payable/v1/invoice.proto";
 import "payments_payable/v1/upd.proto";
 

@@ -26,7 +26,7 @@ const file_person_v1_person_service_proto_rawDesc = "" +
 	"\n" +
 	"\x1eperson/v1/person_service.proto\x12\x13contracts.person.v1\x1a\x16person/v1/person.proto2t\n" +
 	"\rPersonService\x12c\n" +
-	"\fCreatePerson\x12(.contracts.person.v1.CreatePersonRequest\x1a).contracts.person.v1.CreatePersonResponseB&Z$ContractsPsSmetaLib/gen/go/person/v1b\x06proto3"
+	"\fCreatePerson\x12(.contracts.person.v1.CreatePersonRequest\x1a).contracts.person.v1.CreatePersonResponseB=Z;github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/person/v1b\x06proto3"
 
 var file_person_v1_person_service_proto_goTypes = []any{
 	(*CreatePersonRequest)(nil),  // 0: contracts.person.v1.CreatePersonRequest

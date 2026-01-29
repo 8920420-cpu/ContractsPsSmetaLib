@@ -7,12 +7,13 @@
 package v1
 
 import (
-	_ "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/base/v1"
-	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
+
+	v1 "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/base/v1"
+	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
+	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 )
 
 const (
@@ -22,70 +23,10 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type DateDMY struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Day           uint32                 `protobuf:"varint,1,opt,name=day,proto3" json:"day,omitempty"`
-	Month         uint32                 `protobuf:"varint,2,opt,name=month,proto3" json:"month,omitempty"`
-	Year          uint32                 `protobuf:"varint,3,opt,name=year,proto3" json:"year,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *DateDMY) Reset() {
-	*x = DateDMY{}
-	mi := &file_findate_v1_findate_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *DateDMY) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*DateDMY) ProtoMessage() {}
-
-func (x *DateDMY) ProtoReflect() protoreflect.Message {
-	mi := &file_findate_v1_findate_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use DateDMY.ProtoReflect.Descriptor instead.
-func (*DateDMY) Descriptor() ([]byte, []int) {
-	return file_findate_v1_findate_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *DateDMY) GetDay() uint32 {
-	if x != nil {
-		return x.Day
-	}
-	return 0
-}
-
-func (x *DateDMY) GetMonth() uint32 {
-	if x != nil {
-		return x.Month
-	}
-	return 0
-}
-
-func (x *DateDMY) GetYear() uint32 {
-	if x != nil {
-		return x.Year
-	}
-	return 0
-}
-
 type SendFinDate struct {
 	state                 protoimpl.MessageState `protogen:"open.v1"`
-	StartDate             *DateDMY               `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"` //дата число/месяц/год 15/10/2026
-	EndDate               *DateDMY               `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`       //дата число/месяц/год 15/10/2026
+	StartDate             *v1.DateDMY            `protobuf:"bytes,1,opt,name=start_date,json=startDate,proto3" json:"start_date,omitempty"` // дата начала
+	EndDate               *v1.DateDMY            `protobuf:"bytes,2,opt,name=end_date,json=endDate,proto3" json:"end_date,omitempty"`       // дата окончания
 	OpeningReceivable     float64                `protobuf:"fixed64,3,opt,name=opening_receivable,json=openingReceivable,proto3" json:"opening_receivable,omitempty"`
 	ClosingReceivable     float64                `protobuf:"fixed64,4,opt,name=closing_receivable,json=closingReceivable,proto3" json:"closing_receivable,omitempty"`
 	CollectionsReceivable float64                `protobuf:"fixed64,5,opt,name=collections_receivable,json=collectionsReceivable,proto3" json:"collections_receivable,omitempty"`
@@ -105,7 +46,7 @@ type SendFinDate struct {
 
 func (x *SendFinDate) Reset() {
 	*x = SendFinDate{}
-	mi := &file_findate_v1_findate_proto_msgTypes[1]
+	mi := &file_findate_v1_findate_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -117,7 +58,7 @@ func (x *SendFinDate) String() string {
 func (*SendFinDate) ProtoMessage() {}
 
 func (x *SendFinDate) ProtoReflect() protoreflect.Message {
-	mi := &file_findate_v1_findate_proto_msgTypes[1]
+	mi := &file_findate_v1_findate_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -130,17 +71,17 @@ func (x *SendFinDate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendFinDate.ProtoReflect.Descriptor instead.
 func (*SendFinDate) Descriptor() ([]byte, []int) {
-	return file_findate_v1_findate_proto_rawDescGZIP(), []int{1}
+	return file_findate_v1_findate_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *SendFinDate) GetStartDate() *DateDMY {
+func (x *SendFinDate) GetStartDate() *v1.DateDMY {
 	if x != nil {
 		return x.StartDate
 	}
 	return nil
 }
 
-func (x *SendFinDate) GetEndDate() *DateDMY {
+func (x *SendFinDate) GetEndDate() *v1.DateDMY {
 	if x != nil {
 		return x.EndDate
 	}
@@ -242,15 +183,11 @@ var File_findate_v1_findate_proto protoreflect.FileDescriptor
 
 const file_findate_v1_findate_proto_rawDesc = "" +
 	"\n" +
-	"\x18findate/v1/findate.proto\x12\x14contracts.findate.v1\x1a\x15base/v1/context.proto\x1a\x14base/v1/status.proto\"E\n" +
-	"\aDateDMY\x12\x10\n" +
-	"\x03day\x18\x01 \x01(\rR\x03day\x12\x14\n" +
-	"\x05month\x18\x02 \x01(\rR\x05month\x12\x12\n" +
-	"\x04year\x18\x03 \x01(\rR\x04year\"\x9a\x05\n" +
-	"\vSendFinDate\x12<\n" +
+	"\x18findate/v1/findate.proto\x12\x14contracts.findate.v1\x1a\x12base/v1/date.proto\"\x94\x05\n" +
+	"\vSendFinDate\x129\n" +
 	"\n" +
-	"start_date\x18\x01 \x01(\v2\x1d.contracts.findate.v1.DateDMYR\tstartDate\x128\n" +
-	"\bend_date\x18\x02 \x01(\v2\x1d.contracts.findate.v1.DateDMYR\aendDate\x12-\n" +
+	"start_date\x18\x01 \x01(\v2\x1a.contracts.base.v1.DateDMYR\tstartDate\x125\n" +
+	"\bend_date\x18\x02 \x01(\v2\x1a.contracts.base.v1.DateDMYR\aendDate\x12-\n" +
 	"\x12opening_receivable\x18\x03 \x01(\x01R\x11openingReceivable\x12-\n" +
 	"\x12closing_receivable\x18\x04 \x01(\x01R\x11closingReceivable\x125\n" +
 	"\x16collections_receivable\x18\x05 \x01(\x01R\x15collectionsReceivable\x12'\n" +
@@ -281,14 +218,14 @@ func file_findate_v1_findate_proto_rawDescGZIP() []byte {
 	return file_findate_v1_findate_proto_rawDescData
 }
 
-var file_findate_v1_findate_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_findate_v1_findate_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_findate_v1_findate_proto_goTypes = []any{
-	(*DateDMY)(nil),     // 0: contracts.findate.v1.DateDMY
-	(*SendFinDate)(nil), // 1: contracts.findate.v1.SendFinDate
+	(*SendFinDate)(nil), // 0: contracts.findate.v1.SendFinDate
+	(*v1.DateDMY)(nil),  // 1: contracts.base.v1.DateDMY
 }
 var file_findate_v1_findate_proto_depIdxs = []int32{
-	0, // 0: contracts.findate.v1.SendFinDate.start_date:type_name -> contracts.findate.v1.DateDMY
-	0, // 1: contracts.findate.v1.SendFinDate.end_date:type_name -> contracts.findate.v1.DateDMY
+	1, // 0: contracts.findate.v1.SendFinDate.start_date:type_name -> contracts.base.v1.DateDMY
+	1, // 1: contracts.findate.v1.SendFinDate.end_date:type_name -> contracts.base.v1.DateDMY
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -307,7 +244,7 @@ func file_findate_v1_findate_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_findate_v1_findate_proto_rawDesc), len(file_findate_v1_findate_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

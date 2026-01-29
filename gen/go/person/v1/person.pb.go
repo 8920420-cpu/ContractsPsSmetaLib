@@ -8,6 +8,7 @@ package v1
 
 import (
 	v1 "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/base/v1"
+	_ "github.com/envoyproxy/protoc-gen-validate/validate"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -162,10 +163,10 @@ var File_person_v1_person_proto protoreflect.FileDescriptor
 
 const file_person_v1_person_proto_rawDesc = "" +
 	"\n" +
-	"\x16person/v1/person.proto\x12\x13contracts.person.v1\x1a\x15base/v1/context.proto\x1a\x14base/v1/status.proto\"\x80\x02\n" +
+	"\x16person/v1/person.proto\x12\x13contracts.person.v1\x1a\x15base/v1/context.proto\x1a\x14base/v1/status.proto\x1a\x17validate/validate.proto\"\x89\x02\n" +
 	"\x13CreatePersonRequest\x12;\n" +
-	"\acontext\x18\x01 \x01(\v2!.contracts.base.v1.RequestContextR\acontext\x12\x14\n" +
-	"\x05phone\x18\x02 \x01(\tR\x05phone\x12\x1d\n" +
+	"\acontext\x18\x01 \x01(\v2!.contracts.base.v1.RequestContextR\acontext\x12\x1d\n" +
+	"\x05phone\x18\x02 \x01(\tB\a\xfaB\x04r\x02\x18\vR\x05phone\x12\x1d\n" +
 	"\n" +
 	"first_name\x18\x03 \x01(\tR\tfirstName\x12\x1b\n" +
 	"\tlast_name\x18\x04 \x01(\tR\blastName\x12\x1f\n" +

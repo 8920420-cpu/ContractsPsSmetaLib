@@ -90,7 +90,7 @@ const file_base_v1_status_proto_rawDesc = "" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x1d\n" +
 	"\n" +
 	"error_code\x18\x02 \x01(\tR\terrorCode\x12#\n" +
-	"\rerror_message\x18\x03 \x01(\tR\ferrorMessageB$Z\"ContractsPsSmetaLib/gen/go/base/v1b\x06proto3"
+	"\rerror_message\x18\x03 \x01(\tR\ferrorMessageB;Z9github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/base/v1b\x06proto3"
 
 var (
 	file_base_v1_status_proto_rawDescOnce sync.Once

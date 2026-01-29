@@ -24,7 +24,7 @@ var File_payments_payable_v1_payment_service_proto protoreflect.FileDescriptor
 
 const file_payments_payable_v1_payment_service_proto_rawDesc = "" +
 	"\n" +
-	")payments_payable/v1/payment_service.proto\x12\x1dcontracts.payments_payable.v1\x1a&payments_payable/v1/nomenclature.proto\x1a!payments_payable/v1/invoice.proto\x1a\x1dpayments_payable/v1/upd.proto2\x8c\x01\n" +
+	")payments_payable/v1/payment_service.proto\x12\x1dcontracts.payments_payable.v1\x1a!payments_payable/v1/invoice.proto\x1a\x1dpayments_payable/v1/upd.proto2\x8c\x01\n" +
 	"\x0eInvoiceService\x12z\n" +
 	"\rCreateInvoice\x123.contracts.payments_payable.v1.CreateInvoiceRequest\x1a4.contracts.payments_payable.v1.CreateInvoiceResponse2|\n" +
 	"\n" +
@@ -54,7 +54,6 @@ func file_payments_payable_v1_payment_service_proto_init() {
 	if File_payments_payable_v1_payment_service_proto != nil {
 		return
 	}
-	file_payments_payable_v1_nomenclature_proto_init()
 	file_payments_payable_v1_invoice_proto_init()
 	file_payments_payable_v1_upd_proto_init()
 	type x struct{}

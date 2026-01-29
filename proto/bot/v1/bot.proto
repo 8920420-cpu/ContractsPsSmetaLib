@@ -1,16 +1,17 @@
 syntax = "proto3";
 package contracts.bot.v1;
 
-import "base/v1/context.proto"; //отправляем контекст кто, зачем и почему отправил запрос
-import "base/v1/status.proto"; //получаем ответ выполнен запрос или ошибка
-import "base/v1/collback.proto"; //получаем ответ выполнен запрос или ошибка
+import "base/v1/context.proto"; 
+import "base/v1/status.proto";
+
+import "validate/validate.proto";
 
 option go_package = "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/bot/v1";
 
 message CreateBotRequest {
   contracts.base.v1.RequestContext context = 1; //отправляем контекст
 
-  string phone = 2;
+  string phone = 2[(validate.rules).string.max_len = 11];
   string message = 3;
 
   string callback_target = 4;               // куда слать callback

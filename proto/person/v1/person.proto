@@ -4,12 +4,14 @@ package contracts.person.v1;
 import "base/v1/context.proto"; //отправляем контекст кто, зачем и почему отправил запрос
 import "base/v1/status.proto"; //получаем ответ выполнен запрос или ошибка
 
+import "validate/validate.proto";
+
 option go_package = "github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/person/v1";
 
 message CreatePersonRequest {
   contracts.base.v1.RequestContext context = 1; //отправляем контекст
 
-  string phone = 2;
+  string phone = 2[(validate.rules).string.max_len = 11];
   string first_name = 3;
   string last_name = 4;
   string middle_name = 5;

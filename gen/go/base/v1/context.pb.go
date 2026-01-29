@@ -21,19 +21,182 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type RequestContext struct {
+type CallbackStatus int32
+
+const (
+	CallbackStatus_CALLBACK_UNSPECIFIED   CallbackStatus = 0
+	CallbackStatus_CALLBACK_OK            CallbackStatus = 1
+	CallbackStatus_CALLBACK_NOT_COMPLETED CallbackStatus = 2
+)
+
+// Enum value maps for CallbackStatus.
+var (
+	CallbackStatus_name = map[int32]string{
+		0: "CALLBACK_UNSPECIFIED",
+		1: "CALLBACK_OK",
+		2: "CALLBACK_NOT_COMPLETED",
+	}
+	CallbackStatus_value = map[string]int32{
+		"CALLBACK_UNSPECIFIED":   0,
+		"CALLBACK_OK":            1,
+		"CALLBACK_NOT_COMPLETED": 2,
+	}
+)
+
+func (x CallbackStatus) Enum() *CallbackStatus {
+	p := new(CallbackStatus)
+	*p = x
+	return p
+}
+
+func (x CallbackStatus) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (CallbackStatus) Descriptor() protoreflect.EnumDescriptor {
+	return file_base_v1_context_proto_enumTypes[0].Descriptor()
+}
+
+func (CallbackStatus) Type() protoreflect.EnumType {
+	return &file_base_v1_context_proto_enumTypes[0]
+}
+
+func (x CallbackStatus) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use CallbackStatus.Descriptor instead.
+func (CallbackStatus) EnumDescriptor() ([]byte, []int) {
+	return file_base_v1_context_proto_rawDescGZIP(), []int{0}
+}
+
+type Role int32
+
+const (
+	Role_ROLE_UNSPECIFIED Role = 0
+	Role_ROLE_SYSTEM      Role = 1
+	Role_ROLE_ADMIN       Role = 2
+	Role_ROLE_MANAGER     Role = 3
+	Role_ROLE_CLIENT      Role = 4
+)
+
+// Enum value maps for Role.
+var (
+	Role_name = map[int32]string{
+		0: "ROLE_UNSPECIFIED",
+		1: "ROLE_SYSTEM",
+		2: "ROLE_ADMIN",
+		3: "ROLE_MANAGER",
+		4: "ROLE_CLIENT",
+	}
+	Role_value = map[string]int32{
+		"ROLE_UNSPECIFIED": 0,
+		"ROLE_SYSTEM":      1,
+		"ROLE_ADMIN":       2,
+		"ROLE_MANAGER":     3,
+		"ROLE_CLIENT":      4,
+	}
+)
+
+func (x Role) Enum() *Role {
+	p := new(Role)
+	*p = x
+	return p
+}
+
+func (x Role) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Role) Descriptor() protoreflect.EnumDescriptor {
+	return file_base_v1_context_proto_enumTypes[1].Descriptor()
+}
+
+func (Role) Type() protoreflect.EnumType {
+	return &file_base_v1_context_proto_enumTypes[1]
+}
+
+func (x Role) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Role.Descriptor instead.
+func (Role) EnumDescriptor() ([]byte, []int) {
+	return file_base_v1_context_proto_rawDescGZIP(), []int{1}
+}
+
+type CollBack struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	SenderId      string                 `protobuf:"bytes,1,opt,name=sender_id,json=senderId,proto3" json:"sender_id,omitempty"`
-	SenderService string                 `protobuf:"bytes,2,opt,name=sender_service,json=senderService,proto3" json:"sender_service,omitempty"`
-	RequestId     string                 `protobuf:"bytes,3,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
-	Timestamp     int64                  `protobuf:"varint,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"`
+	Status        CallbackStatus         `protobuf:"varint,1,opt,name=status,proto3,enum=contracts.base.v1.CallbackStatus" json:"status,omitempty"`
+	Message       string                 `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
+func (x *CollBack) Reset() {
+	*x = CollBack{}
+	mi := &file_base_v1_context_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CollBack) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CollBack) ProtoMessage() {}
+
+func (x *CollBack) ProtoReflect() protoreflect.Message {
+	mi := &file_base_v1_context_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CollBack.ProtoReflect.Descriptor instead.
+func (*CollBack) Descriptor() ([]byte, []int) {
+	return file_base_v1_context_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *CollBack) GetStatus() CallbackStatus {
+	if x != nil {
+		return x.Status
+	}
+	return CallbackStatus_CALLBACK_UNSPECIFIED
+}
+
+func (x *CollBack) GetMessage() string {
+	if x != nil {
+		return x.Message
+	}
+	return ""
+}
+
+type RequestContext struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// tracing
+	RequestId        string `protobuf:"bytes,1,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+	CallerService    string `protobuf:"bytes,2,opt,name=caller_service,json=callerService,proto3" json:"caller_service,omitempty"`
+	CallerInstanceId string `protobuf:"bytes,3,opt,name=caller_instance_id,json=callerInstanceId,proto3" json:"caller_instance_id,omitempty"`
+	Timestamp        int64  `protobuf:"varint,4,opt,name=timestamp,proto3" json:"timestamp,omitempty"` // ЗАМЕНА: Unix timestamp вместо google.protobuf.Timestamp
+	// security
+	UserId         string    `protobuf:"bytes,5,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	ClientId       string    `protobuf:"bytes,6,opt,name=client_id,json=clientId,proto3" json:"client_id,omitempty"`
+	OrganizationId string    `protobuf:"bytes,7,opt,name=organization_id,json=organizationId,proto3" json:"organization_id,omitempty"`
+	Role           Role      `protobuf:"varint,8,opt,name=role,proto3,enum=contracts.base.v1.Role" json:"role,omitempty"`
+	CollBack       *CollBack `protobuf:"bytes,9,opt,name=coll_back,json=collBack,proto3" json:"coll_back,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
 func (x *RequestContext) Reset() {
 	*x = RequestContext{}
-	mi := &file_base_v1_context_proto_msgTypes[0]
+	mi := &file_base_v1_context_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +208,7 @@ func (x *RequestContext) String() string {
 func (*RequestContext) ProtoMessage() {}
 
 func (x *RequestContext) ProtoReflect() protoreflect.Message {
-	mi := &file_base_v1_context_proto_msgTypes[0]
+	mi := &file_base_v1_context_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,26 +221,26 @@ func (x *RequestContext) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RequestContext.ProtoReflect.Descriptor instead.
 func (*RequestContext) Descriptor() ([]byte, []int) {
-	return file_base_v1_context_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *RequestContext) GetSenderId() string {
-	if x != nil {
-		return x.SenderId
-	}
-	return ""
-}
-
-func (x *RequestContext) GetSenderService() string {
-	if x != nil {
-		return x.SenderService
-	}
-	return ""
+	return file_base_v1_context_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *RequestContext) GetRequestId() string {
 	if x != nil {
 		return x.RequestId
+	}
+	return ""
+}
+
+func (x *RequestContext) GetCallerService() string {
+	if x != nil {
+		return x.CallerService
+	}
+	return ""
+}
+
+func (x *RequestContext) GetCallerInstanceId() string {
+	if x != nil {
+		return x.CallerInstanceId
 	}
 	return ""
 }
@@ -89,17 +252,71 @@ func (x *RequestContext) GetTimestamp() int64 {
 	return 0
 }
 
+func (x *RequestContext) GetUserId() string {
+	if x != nil {
+		return x.UserId
+	}
+	return ""
+}
+
+func (x *RequestContext) GetClientId() string {
+	if x != nil {
+		return x.ClientId
+	}
+	return ""
+}
+
+func (x *RequestContext) GetOrganizationId() string {
+	if x != nil {
+		return x.OrganizationId
+	}
+	return ""
+}
+
+func (x *RequestContext) GetRole() Role {
+	if x != nil {
+		return x.Role
+	}
+	return Role_ROLE_UNSPECIFIED
+}
+
+func (x *RequestContext) GetCollBack() *CollBack {
+	if x != nil {
+		return x.CollBack
+	}
+	return nil
+}
+
 var File_base_v1_context_proto protoreflect.FileDescriptor
 
 const file_base_v1_context_proto_rawDesc = "" +
 	"\n" +
-	"\x15base/v1/context.proto\x12\x11contracts.base.v1\"\x91\x01\n" +
-	"\x0eRequestContext\x12\x1b\n" +
-	"\tsender_id\x18\x01 \x01(\tR\bsenderId\x12%\n" +
-	"\x0esender_service\x18\x02 \x01(\tR\rsenderService\x12\x1d\n" +
+	"\x15base/v1/context.proto\x12\x11contracts.base.v1\"_\n" +
+	"\bCollBack\x129\n" +
+	"\x06status\x18\x01 \x01(\x0e2!.contracts.base.v1.CallbackStatusR\x06status\x12\x18\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"\xe8\x02\n" +
+	"\x0eRequestContext\x12\x1d\n" +
 	"\n" +
-	"request_id\x18\x03 \x01(\tR\trequestId\x12\x1c\n" +
-	"\ttimestamp\x18\x04 \x01(\x03R\ttimestampB$Z\"ContractsPsSmetaLib/gen/go/base/v1b\x06proto3"
+	"request_id\x18\x01 \x01(\tR\trequestId\x12%\n" +
+	"\x0ecaller_service\x18\x02 \x01(\tR\rcallerService\x12,\n" +
+	"\x12caller_instance_id\x18\x03 \x01(\tR\x10callerInstanceId\x12\x1c\n" +
+	"\ttimestamp\x18\x04 \x01(\x03R\ttimestamp\x12\x17\n" +
+	"\auser_id\x18\x05 \x01(\tR\x06userId\x12\x1b\n" +
+	"\tclient_id\x18\x06 \x01(\tR\bclientId\x12'\n" +
+	"\x0forganization_id\x18\a \x01(\tR\x0eorganizationId\x12+\n" +
+	"\x04role\x18\b \x01(\x0e2\x17.contracts.base.v1.RoleR\x04role\x128\n" +
+	"\tcoll_back\x18\t \x01(\v2\x1b.contracts.base.v1.CollBackR\bcollBack*W\n" +
+	"\x0eCallbackStatus\x12\x18\n" +
+	"\x14CALLBACK_UNSPECIFIED\x10\x00\x12\x0f\n" +
+	"\vCALLBACK_OK\x10\x01\x12\x1a\n" +
+	"\x16CALLBACK_NOT_COMPLETED\x10\x02*`\n" +
+	"\x04Role\x12\x14\n" +
+	"\x10ROLE_UNSPECIFIED\x10\x00\x12\x0f\n" +
+	"\vROLE_SYSTEM\x10\x01\x12\x0e\n" +
+	"\n" +
+	"ROLE_ADMIN\x10\x02\x12\x10\n" +
+	"\fROLE_MANAGER\x10\x03\x12\x0f\n" +
+	"\vROLE_CLIENT\x10\x04B;Z9github.com/8920420-cpu/ContractsPsSmetaLib/gen/go/base/v1b\x06proto3"
 
 var (
 	file_base_v1_context_proto_rawDescOnce sync.Once
@@ -113,16 +330,23 @@ func file_base_v1_context_proto_rawDescGZIP() []byte {
 	return file_base_v1_context_proto_rawDescData
 }
 
-var file_base_v1_context_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_base_v1_context_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_base_v1_context_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_base_v1_context_proto_goTypes = []any{
-	(*RequestContext)(nil), // 0: contracts.base.v1.RequestContext
+	(CallbackStatus)(0),    // 0: contracts.base.v1.CallbackStatus
+	(Role)(0),              // 1: contracts.base.v1.Role
+	(*CollBack)(nil),       // 2: contracts.base.v1.CollBack
+	(*RequestContext)(nil), // 3: contracts.base.v1.RequestContext
 }
 var file_base_v1_context_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0, // 0: contracts.base.v1.CollBack.status:type_name -> contracts.base.v1.CallbackStatus
+	1, // 1: contracts.base.v1.RequestContext.role:type_name -> contracts.base.v1.Role
+	2, // 2: contracts.base.v1.RequestContext.coll_back:type_name -> contracts.base.v1.CollBack
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_base_v1_context_proto_init() }
@@ -135,13 +359,14 @@ func file_base_v1_context_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_base_v1_context_proto_rawDesc), len(file_base_v1_context_proto_rawDesc)),
-			NumEnums:      0,
-			NumMessages:   1,
+			NumEnums:      2,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_base_v1_context_proto_goTypes,
 		DependencyIndexes: file_base_v1_context_proto_depIdxs,
+		EnumInfos:         file_base_v1_context_proto_enumTypes,
 		MessageInfos:      file_base_v1_context_proto_msgTypes,
 	}.Build()
 	File_base_v1_context_proto = out.File
